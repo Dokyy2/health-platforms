@@ -59,6 +59,28 @@
         .platform::after { animation-duration:12s; } .screen-canvas { animation-duration:11s; } .preview { box-shadow:0 9px 20px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.45); }
         .choices,.closing { content-visibility:auto; contain-intrinsic-size:700px; }
       }
+      /* Authoritative platform assets: presented unchanged inside the existing cinematic frames. */
+      .asset-preview { background:radial-gradient(circle at 50% 38%,#174c63 0%,#092538 54%,#04131f 100%) !important; display:grid; place-items:center; }
+      .asset-preview img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; mix-blend-mode:multiply; filter:contrast(1.09) saturate(1.06); animation:assetPreviewMotion 12s ease-in-out infinite alternate; transform-origin:center; }
+      .asset-preview::before { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(140deg,rgba(8,51,66,.08),rgba(3,15,28,.33)); }
+      .assistant-asset { background:radial-gradient(circle at 50% 42%,#168fc0 0%,#0b496e 43%,#061a2a 100%) !important; }
+      .assistant-asset img { object-fit:contain; padding:5%; }
+      .family-asset img { object-position:center 35%; }
+      .asset-preview::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(112deg,transparent 31%,rgba(255,255,255,.22) 47%,transparent 57%); transform:translateX(-130%); animation:screenReflection 8.5s 1.5s ease-in-out infinite; }
+      .asset-logo { display:inline-grid; place-items:center; width:27px; height:27px; overflow:hidden; border-radius:50%; vertical-align:middle; margin-left:.48rem; background:#08293a; border:1px solid rgba(215,250,248,.48); box-shadow:0 0 15px rgba(121,232,224,.2); }
+      .asset-logo img { width:100%; height:100%; object-fit:cover; mix-blend-mode:multiply; }
+      .asset-logo.assistant-logo { background:transparent; border:0; box-shadow:none; }
+      @keyframes assetPreviewMotion { from { transform:scale(1.015) translateX(-.5%); } to { transform:scale(1.04) translateX(.5%); } }
+      @media (max-width:720px) { .asset-preview img { animation-duration:15s; } }
+      /* The supplied visuals now live as large, low-contrast card atmospheres — not boxed thumbnails. */
+      .asset-preview { display:none; }
+      .main-platform { background-image:linear-gradient(118deg,rgba(4,25,35,.93),rgba(8,45,57,.66)),url('assets/platform-banner.png'); background-size:cover,cover; background-position:center,center; background-repeat:no-repeat; background-blend-mode:multiply; }
+      .assistant { background-image:linear-gradient(115deg,rgba(4,23,34,.94),rgba(8,48,62,.64)),url('assets/assistant-logo.png'); background-size:cover,62% auto; background-position:center,16% center; background-repeat:no-repeat; background-blend-mode:multiply; }
+      .awareness { background-image:linear-gradient(115deg,rgba(4,23,34,.94),rgba(11,54,60,.67)),url('assets/family-awareness-preview.png'); background-size:cover,66% auto; background-position:center,16% center; background-repeat:no-repeat; background-blend-mode:multiply; }
+      .platform .card-copy { max-width:58%; text-shadow:0 2px 12px rgba(0,11,18,.8); }
+      .main-platform .card-copy { max-width:46%; }
+      .platform .card-content { justify-content:flex-end; }
+      @media (max-width:720px) { .assistant,.awareness { background-size:cover,72% auto; background-position:center,18% center; } .main-platform .card-copy { max-width:56%; } .platform .card-copy { max-width:61%; } }
     </style>
   </head>
   <body>
@@ -96,28 +118,21 @@
             <div class="floating-label">المنصة الرئيسية <b>✦</b></div>
             <div class="card-head"><span class="platform-code">PLATFORM 01 — FLAGSHIP</span><span class="status"><i></i> متصل الآن</span></div>
             <div class="card-content">
-              <div class="card-copy"><p class="number">01</p><h2>المنصة الرقمية<br />للخدمات الصحية</h2><p>منطقة الوايلي الطبية</p></div>
-              <div class="preview primary-preview" aria-hidden="true">
-                <div class="screen-canvas waili-screen">
-                  <div class="browser-top real-bar"><i></i><i></i><i></i><span class="site-name">waili-health-platform</span></div>
-                  <div class="waili-nav"><div class="waili-brand"><strong>+</strong> منطقة الوايلي الطبية</div><div class="nav-dashes"><b></b><b></b><b></b></div></div>
-                  <div class="waili-hero"><small>بوابتك إلى الرعاية الصحية</small><b>الخدمات الصحية الرقمية</b><span>ابدأ خدمتك</span></div>
-                  <div class="waili-services"><div class="waili-service"><i></i>حجز خدمة</div><div class="waili-service"><i></i>التطعيمات</div><div class="waili-service"><i></i>التوعية</div></div>
-                </div>
-              </div>
+              <div class="card-copy"><p class="number">01</p><h2>المنصة الرقمية<br />للخدمات الصحية</h2><p><span class="asset-logo"><img src="assets/waili-logo.png" alt="" /></span>منطقة الوايلي الطبية</p></div>
+              <div class="preview primary-preview asset-preview" aria-hidden="true"><img src="assets/platform-banner.png" alt="" /></div>
             </div>
             <span class="explore">استكشف المنصة <b>↗</b></span>
           </a>
 
           <a class="platform secondary assistant reveal card-reveal" href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المساعد الذكي لمكاتب الصحة">
             <div class="card-head"><span class="platform-code">PLATFORM 02</span><span class="mini-mark">✦</span></div>
-            <div class="card-content"><div class="card-copy"><p class="number">02</p><h2>المساعد الذكي<br />لمكاتب الصحة</h2><p>إجابات وإرشاد أقرب إليك</p></div><div class="preview assistant-preview" aria-hidden="true"><div class="screen-canvas assistant-screen"><div class="browser-top real-bar"><i></i><i></i><i></i><span class="site-name">smart-assistant</span></div><div class="assistant-header"><div class="assistant-brand"><span class="bot-mark">✦</span> المساعد الذكي</div><span class="header-menu"></span></div><div class="assistant-welcome">أهلاً بك، كيف يمكنني مساعدتك؟<small>اختر الخدمة التي تبحث عنها</small></div><div class="assistant-chat">أحتاج لمعرفة أقرب مكتب صحة</div><div class="assistant-chat reply">بالتأكيد، سأساعدك الآن</div><div class="assistant-services"><div class="assistant-service"><span>⌖</span>مكاتب الصحة</div><div class="assistant-service"><span>✚</span>تطعيمات</div><div class="assistant-service"><span>◫</span>خدماتي</div></div></div></div></div>
+            <div class="card-content"><div class="card-copy"><p class="number">02</p><h2>المساعد الذكي<br />لمكاتب الصحة</h2><p><span class="asset-logo assistant-logo"><img src="assets/assistant-logo.png" alt="" /></span>إجابات وإرشاد أقرب إليك</p></div><div class="preview assistant-preview asset-preview assistant-asset" aria-hidden="true"><img src="assets/assistant-logo.png" alt="" /></div></div>
             <span class="explore">استكشف المنصة <b>↗</b></span>
           </a>
 
           <a class="platform secondary awareness reveal card-reveal" href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" aria-label="استكشف منصة التوعية الأسرية">
             <div class="card-head"><span class="platform-code">PLATFORM 03</span><span class="mini-mark">✦</span></div>
-            <div class="card-content"><div class="card-copy"><p class="number">03</p><h2>منصة التوعية<br />الأسرية</h2><p>معلومة صحية لكل بيت</p></div><div class="preview awareness-preview" aria-hidden="true"><div class="screen-canvas family-screen"><div class="browser-top real-bar"><i></i><i></i><i></i><span class="site-name">awarefamily</span></div><div class="family-header"><span class="family-menu"></span><span>منصة التوعية الأسرية</span><span class="family-logo"></span></div><div class="family-hero"><b>صحة الأسرة تبدأ بالوعي</b><small>محتوى صحي موثوق لكل أسرة</small><span class="family-pill">اكتشف الآن</span></div><div class="family-topics"><div class="family-topic"><i></i>تغذية</div><div class="family-topic"><i></i>أمومة</div><div class="family-topic"><i></i>صحة الطفل</div></div></div></div></div>
+            <div class="card-content"><div class="card-copy"><p class="number">03</p><h2>منصة التوعية<br />الأسرية</h2><p>معلومة صحية لكل بيت</p></div><div class="preview awareness-preview asset-preview family-asset" aria-hidden="true"><img src="assets/family-awareness-preview.png" alt="" /></div></div>
             <span class="explore">استكشف المنصة <b>↗</b></span>
           </a>
         </div>
