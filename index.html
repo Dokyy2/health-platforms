@@ -81,6 +81,15 @@
       .main-platform .card-copy { max-width:46%; }
       .platform .card-content { justify-content:flex-end; }
       @media (max-width:720px) { .assistant,.awareness { background-size:cover,72% auto; background-position:center,18% center; } .main-platform .card-copy { max-width:56%; } .platform .card-copy { max-width:61%; } }
+      /* Text-safe layout: titles sit consistently on the right, away from the artwork's own lettering. */
+      .platform .card-content { position:relative; display:block; }
+      .platform .card-copy { position:absolute; top:50%; right:1.1rem; left:auto; z-index:4; width:42%; max-width:none; transform:translateY(-48%); text-align:right; padding:.45rem .55rem .45rem .15rem; background:linear-gradient(90deg,transparent,rgba(3,17,28,.47) 20%,rgba(3,17,28,.71)); border-right:2px solid rgba(133,232,223,.47); }
+      .main-platform .card-copy { right:1.35rem; width:40%; max-width:none; }
+      .main-platform .card-copy h2 { font-size:clamp(1.04rem,1.75vw,1.46rem); line-height:1.48; }
+      .secondary .card-copy h2 { font-size:clamp(.9rem,1.3vw,1.12rem); line-height:1.5; }
+      .platform .card-copy>p:last-child { font-size:.59rem; line-height:1.65; }
+      .platform .number { margin-bottom:.35rem; font-size:.56rem; }
+      @media (max-width:720px) { .platform .card-copy { right:.75rem; width:48%; padding:.42rem .44rem .42rem .1rem; } .main-platform .card-copy { right:.8rem; width:48%; } .main-platform .card-copy h2 { font-size:1.08rem; } .secondary .card-copy h2 { font-size:.93rem; } }
     </style>
   </head>
   <body>
