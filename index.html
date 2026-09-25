@@ -37,6 +37,28 @@
       @media (max-width:720px) { .platform .preview { flex-basis:53%; height:72%; } .main-platform .preview { flex-basis:54%; } .waili-services { gap:3px; } }
       /* Visibility fallback: cards never remain invisible if an animation is delayed or blocked. */
       .reveal { opacity: 1; }
+      /* A quiet, sequential light cue makes the three platforms feel connected. */
+      .main-platform { animation: floatMain 7s ease-in-out infinite, cardHeartbeat 9s .25s ease-in-out infinite; }
+      .assistant { animation: floatSide 7.5s -1.7s ease-in-out infinite, cardHeartbeat 9s 3.25s ease-in-out infinite; }
+      .awareness { animation: floatSide 7.5s -4.3s ease-in-out infinite, cardHeartbeat 9s 6.25s ease-in-out infinite; }
+      @keyframes cardHeartbeat { 0%, 24%, 100% { border-color:rgba(151,219,222,.19); box-shadow:inset 0 1px 0 rgba(224,255,255,.1),0 23px 45px rgba(0,0,0,.28); } 7%, 15% { border-color:rgba(161,248,241,.8); box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 0 0 1px rgba(113,242,231,.18),0 0 34px rgba(75,218,211,.31),0 23px 45px rgba(0,0,0,.28); } }
+      /* Platform marks: a healthcare cross, a friendly assistant bot, and a family leaf. */
+      .waili-brand strong { width:19px; height:19px; border-radius:5px; font-size:14px; background:linear-gradient(135deg,#0791a0,#1263a1); box-shadow:0 3px 8px rgba(0,118,143,.32); }
+      .waili-hero::before { content:"✚"; position:absolute; left:8%; top:10%; z-index:1; color:rgba(255,255,255,.91); font:700 1.3rem Arial; width:25px; height:25px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.42); border-radius:50%; }
+      .assistant-brand .bot-mark { width:20px; height:17px; border-radius:6px; border:0; background:#e9c06b; color:transparent; position:relative; box-shadow:0 2px 7px rgba(0,0,0,.18); }
+      .assistant-brand .bot-mark::before { content:"• •"; position:absolute; inset:0; display:grid; place-items:center; color:#17657b; font:700 9px/1 Arial; letter-spacing:1px; }
+      .assistant-brand .bot-mark::after { content:""; position:absolute; width:7px; height:3px; border-top:1px solid #17657b; border-radius:50%; bottom:3px; right:6px; }
+      .family-header .family-logo { width:20px; height:20px; box-shadow:0 3px 8px rgba(67,117,77,.18); }
+      @media (max-width:720px) { .main-platform,.assistant,.awareness { animation:cardHeartbeat 9s ease-in-out infinite; } .main-platform { animation-delay:.25s; } .assistant { animation-delay:3.25s; } .awareness { animation-delay:6.25s; } .stage:before { width:2px; height:calc(100% - 11.5rem); top:calc(16% + 1rem); background:repeating-linear-gradient(to bottom,#8ff5eb 0 8px,rgba(228,186,114,.9) 8px 12px,transparent 12px 25px); background-size:100% 25px; box-shadow:0 0 12px rgba(110,239,226,.85); animation:mobileLightStream 1.7s linear infinite; } .stage:after { content:"✦"; top:19%; color:#ffe0a1; font-size:1rem; filter:drop-shadow(0 0 8px #9dfff5); animation:mobileNode 2.5s linear infinite; } }
+      @keyframes mobileLightStream { to { background-position:0 25px; } } @keyframes mobileNode { 0% { translate:0 0; opacity:0; } 15% { opacity:1; } 88% { opacity:1; } 100% { translate:0 calc(100svh + 200px); opacity:0; } }
+      /* Mobile performance pass: preserve the visual language while avoiding full-screen repaints. */
+      .platform,.orb,.beam,.screen-canvas { will-change:transform; }
+      @media (max-width:720px) {
+        .platform { backdrop-filter:none; -webkit-backdrop-filter:none; background:linear-gradient(130deg,rgba(17,48,62,.93),rgba(6,21,31,.95)); }
+        .grain { display:none; } .stars { animation:none; opacity:.34; } .beam { animation:none; filter:none; opacity:.32; } .orb { filter:blur(16px); animation:none; opacity:.22; } .orb-three { display:none; }
+        .platform::after { animation-duration:12s; } .screen-canvas { animation-duration:11s; } .preview { box-shadow:0 9px 20px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.45); }
+        .choices,.closing { content-visibility:auto; contain-intrinsic-size:700px; }
+      }
     </style>
   </head>
   <body>
