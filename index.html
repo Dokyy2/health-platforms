@@ -90,6 +90,14 @@
       .platform .card-copy>p:last-child { font-size:.59rem; line-height:1.65; }
       .platform .number { margin-bottom:.35rem; font-size:.56rem; }
       @media (max-width:720px) { .platform .card-copy { right:.75rem; width:48%; padding:.42rem .44rem .42rem .1rem; } .main-platform .card-copy { right:.8rem; width:48%; } .main-platform .card-copy h2 { font-size:1.08rem; } .secondary .card-copy h2 { font-size:.93rem; } }
+      /* A compact celestial timepiece: live Cairo time, kept airy around the hero. */
+      .cosmic-clock { position:relative; width:min(100%,330px); height:104px; margin:1.2rem auto -.15rem; display:grid; place-items:center; isolation:isolate; color:#f6ffff; }
+      .clock-orbit { position:absolute; border-radius:50%; pointer-events:none; z-index:-1; }.orbit-one { width:100%; height:80px; border:1px solid rgba(131,235,229,.24); box-shadow:0 0 22px rgba(71,205,203,.11),inset 0 0 18px rgba(63,182,191,.06); transform:rotate(-7deg); animation:cosmicOrbit 13s linear infinite; }.orbit-two { width:76%; height:56px; border-top:1px solid rgba(232,190,113,.58); border-bottom:1px solid rgba(120,229,222,.42); transform:rotate(11deg); animation:cosmicOrbit 9s linear infinite reverse; }
+      .clock-readout { direction:ltr; display:flex; align-items:baseline; justify-content:center; gap:.26rem; font-family:Alexandria,sans-serif; font-size:clamp(1.55rem,3.2vw,2.35rem); font-weight:600; letter-spacing:.045em; text-shadow:0 0 15px rgba(172,249,244,.39); }.clock-readout span { min-width:2ch; }.clock-readout b { color:var(--gold); font-size:.76em; font-weight:400; animation:clockPulse 1s steps(1,end) infinite; }
+      .cosmic-clock time { position:absolute; bottom:2px; font-size:.62rem; letter-spacing:.06em; color:#b8d8d7; }.cosmic-clock::before,.cosmic-clock::after { content:"✦"; position:absolute; color:var(--gold); font-size:.55rem; text-shadow:0 0 10px #e8c075; }.cosmic-clock::before { top:13px; right:23px; }.cosmic-clock::after { bottom:16px; left:25px; color:var(--cyan); }
+      footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.25rem .45rem; } footer>span { color:#68828a; padding:0; } footer em { color:var(--gold); font-style:normal; } .footer-credit { position:relative; display:inline-flex; align-items:center; gap:.38rem; overflow:hidden; margin-right:.65rem; padding:.26rem .5rem; color:#f1c76f; text-decoration:none; font:600 .65rem Alexandria,sans-serif; letter-spacing:.02em; border-right:1px solid rgba(235,191,110,.42); text-shadow:0 0 8px rgba(239,190,99,.34); animation:creditGlow 4.8s ease-in-out infinite; }.footer-credit svg { width:1rem; height:1rem; filter:drop-shadow(0 0 5px rgba(237,188,101,.55)); }.footer-credit::after { content:""; position:absolute; inset:0; background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.68) 50%,transparent 65%); transform:translateX(-125%); animation:creditShine 4.8s ease-in-out infinite; }.footer-credit:hover,.footer-credit:focus-visible { color:#fff0c7; outline:none; }
+      @keyframes cosmicOrbit { to { transform:rotate(353deg); } } @keyframes clockPulse { 50% { opacity:.18; } } @keyframes creditGlow { 50% { color:#fff3c9; text-shadow:0 0 14px rgba(255,213,123,.85); } } @keyframes creditShine { 0%,67% { transform:translateX(-125%); } 91%,100% { transform:translateX(125%); } }
+      @media (max-width:720px) { .cosmic-clock { width:min(94vw,300px); height:91px; margin:1rem auto .35rem; }.clock-readout { font-size:1.62rem; }.orbit-one { height:70px; }.orbit-two { height:48px; }.footer-credit { order:3; width:100%; justify-content:center; margin:.35rem 0 0; border-right:0; border-top:1px solid rgba(235,191,110,.26); padding-top:.6rem; } }
     </style>
   </head>
   <body>
@@ -108,6 +116,11 @@
           <h1 id="main-title">منظومة رقمية متكاملة<br />لخدمات الصحة</h1>
           <p class="subtitle">ثلاث منصات... تجربة رقمية واحدة</p>
           <p class="supporting">حلول رقمية صُممت لتسهيل الوصول إلى الخدمة والمعلومة والتوعية الصحية.</p>
+          <div class="cosmic-clock" role="timer" aria-label="الوقت الحالي بتوقيت القاهرة">
+            <div class="clock-orbit orbit-one"></div><div class="clock-orbit orbit-two"></div>
+            <div class="clock-readout"><span id="clock-hours">00</span><b>:</b><span id="clock-minutes">00</span><b>:</b><span id="clock-seconds">00</span></div>
+            <time id="clock-date">—</time>
+          </div>
         </div>
 
         <div class="stage" id="stage">
@@ -134,13 +147,13 @@
           </a>
 
           <a class="platform secondary assistant reveal card-reveal" href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المساعد الذكي لمكاتب الصحة">
-            <div class="card-head"><span class="platform-code">PLATFORM 02</span><span class="mini-mark">✦</span></div>
+            <div class="card-head"><span class="platform-code">PLATFORM 02</span><span class="status"><i></i> متصل الآن</span></div>
             <div class="card-content"><div class="card-copy"><p class="number">02</p><h2>المساعد الذكي<br />لمكاتب الصحة</h2><p><span class="asset-logo assistant-logo"><img src="assets/assistant-logo.png" alt="" /></span>إجابات وإرشاد أقرب إليك</p></div><div class="preview assistant-preview asset-preview assistant-asset" aria-hidden="true"><img src="assets/assistant-logo.png" alt="" /></div></div>
             <span class="explore">استكشف المنصة <b>↗</b></span>
           </a>
 
           <a class="platform secondary awareness reveal card-reveal" href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" aria-label="استكشف منصة التوعية الأسرية">
-            <div class="card-head"><span class="platform-code">PLATFORM 03</span><span class="mini-mark">✦</span></div>
+            <div class="card-head"><span class="platform-code">PLATFORM 03</span><span class="status"><i></i> متصل الآن</span></div>
             <div class="card-content"><div class="card-copy"><p class="number">03</p><h2>منصة التوعية<br />الأسرية</h2><p>معلومة صحية لكل بيت</p></div><div class="preview awareness-preview asset-preview family-asset" aria-hidden="true"><img src="assets/family-awareness-preview.png" alt="" /></div></div>
             <span class="explore">استكشف المنصة <b>↗</b></span>
           </a>
@@ -163,7 +176,7 @@
         <a class="final-cta" href="#main-title">استكشف المنصات الثلاث <b>↓</b></a>
       </section>
     </main>
-    <footer>منظومة الخدمات الصحية الرقمية <span>©</span> ٢٠٢٦</footer>
+    <footer><span>منظومة الخدمات الصحية الرقمية</span><em>©</em><span>٢٠٢٦</span><a class="footer-credit" href="https://wa.me/201021708011" target="_blank" rel="noopener noreferrer" aria-label="التواصل مع المهندس باسم أشرف عبر واتساب"><span>Design by : Eng Bassem Ashraf</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.4a9.6 9.6 0 0 0-8.18 14.63L2.7 21.6l4.72-1.08A9.6 9.6 0 1 0 12 2.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 7.85c.16-.38.33-.39.61-.39h.52c.17 0 .36.03.44.27l.62 1.54c.08.2.05.39-.08.53l-.4.47c-.12.13-.25.26-.1.5.15.26.67 1.1 1.44 1.78.99.88 1.82 1.15 2.08 1.29.26.13.41.11.56-.07l.7-.82c.16-.19.34-.16.57-.08l1.45.68c.24.12.4.17.45.27.06.1.06.59-.14 1.16-.19.57-1.1 1.09-1.52 1.15-.4.06-.9.09-1.46-.09-.34-.11-.78-.26-1.34-.5-2.36-1.02-3.9-3.42-4.02-3.59-.12-.17-.96-1.27-.96-2.42 0-1.16.6-1.72.81-1.96Z" fill="currentColor"/></svg></a></footer>
     <script src="script.js"></script>
   </body>
 </html>
