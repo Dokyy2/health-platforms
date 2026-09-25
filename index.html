@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#06131f" />
+    <meta name="description" content="منظومة رقمية متكاملة لخدمات الصحة" />
+    <title>منظومة الصحة الرقمية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Interface-only upgrade: the cinematic shell remains in style.css. */
+      .platform .preview { flex: 0 0 54%; height: 70%; border-radius: 6px; background: #eef7f7 !important; transform: perspective(500px) rotateY(-2.5deg) rotateX(1deg); transform-origin: 50% 50%; box-shadow: 0 17px 32px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.55); }
+      .main-platform .preview { flex-basis: 54%; height: 74%; }
+      .platform .preview::before { content: ""; position:absolute; inset:0; z-index:8; pointer-events:none; background:linear-gradient(112deg,transparent 23%,rgba(255,255,255,.36) 46%,transparent 57%); transform:translateX(-130%); animation:screenReflection 7.5s 1.5s ease-in-out infinite; }
+      .screen-canvas { height:100%; color:#13384d; direction:rtl; overflow:hidden; position:relative; font-family:"IBM Plex Sans Arabic",sans-serif; animation:previewDrift 8s ease-in-out infinite alternate; transform-origin:center; }
+      .screen-canvas::after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(16,53,71,.18), inset 0 -24px 25px -25px rgba(0,32,52,.65); }
+      .browser-top.real-bar { height:13%; min-height:16px; padding:0 .38rem; background:#edf4f5; border-bottom:1px solid #d7e6e7; color:#63818a; font-size:clamp(.25rem,.43vw,.35rem); }
+      .real-bar .site-name { margin-right:auto; margin-left:.2rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:68%; }
+      .browser-top.real-bar i { width:4px; height:4px; }
+      .waili-screen { background:linear-gradient(135deg,#e7fbfa 0%,#edf8ff 52%,#d7eff7 100%); }
+      .waili-nav { height:16%; padding:0 7%; background:white; display:flex; align-items:center; justify-content:space-between; box-shadow:0 1px 7px rgba(18,92,116,.08); }
+      .waili-brand { display:flex; align-items:center; gap:4px; color:#0e6170; font-weight:700; font-size:clamp(.28rem,.52vw,.42rem); white-space:nowrap; }.waili-brand strong { display:grid; place-items:center; width:14px; height:14px; background:#0e8b9c; border-radius:3px; color:white; font-size:10px; line-height:1; }
+      .nav-dashes { display:flex; gap:4px; }.nav-dashes b { width:10px; height:2px; border-radius:2px; background:#74abb5; }.nav-dashes b:first-child{background:#e1ae5e;width:14px}
+      .waili-hero { margin:5% 6% 3%; min-height:33%; padding:6% 7%; border-radius:4px; background:linear-gradient(120deg,#087d8e,#0d5079); color:white; position:relative; overflow:hidden; }.waili-hero::after { content:"+"; position:absolute; left:8%; bottom:-35%; color:rgba(255,255,255,.19); font:700 4rem Arial; }.waili-hero small { display:block; opacity:.84; font-size:clamp(.26rem,.46vw,.38rem); }.waili-hero b { display:block; font-size:clamp(.42rem,.8vw,.67rem); margin-top:3px; }.waili-hero span { display:inline-block; background:#f4c169; color:#135069; border-radius:8px; padding:3px 6px; font-size:clamp(.22rem,.38vw,.31rem); margin-top:6px; }
+      .waili-services { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; padding:0 6%; }.waili-service { background:white; padding:6px 4px; min-height:31px; box-shadow:0 2px 5px rgba(22,95,118,.1); text-align:center; font-size:clamp(.22rem,.38vw,.3rem); font-weight:600; color:#27707d; }.waili-service i { display:block; width:8px; height:8px; margin:0 auto 3px; background:#62c9ca; border-radius:50%; }.waili-service:nth-child(2) i{background:#e6b45e}.waili-service:nth-child(3) i{background:#578fc5}
+      .assistant-screen { background:#f7fbfc; }.assistant-header { height:18%; padding:0 7%; background:linear-gradient(90deg,#07627c,#1296ae); color:white; display:flex; align-items:center; justify-content:space-between; }.assistant-brand { display:flex; align-items:center; gap:4px; font-size:clamp(.3rem,.53vw,.43rem); font-weight:700; }.bot-mark { width:15px; height:15px; border:1.5px solid white; border-radius:5px; display:grid; place-items:center; font-size:9px; }.header-menu{width:13px;height:7px;border-top:1px solid rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.8)}
+      .assistant-welcome { padding:5% 7% 3%; color:#0a5e77; font-weight:700; font-size:clamp(.38rem,.7vw,.57rem); }.assistant-welcome small{display:block;color:#71919b;font-size:clamp(.23rem,.4vw,.32rem);font-weight:400;margin-top:2px}.assistant-chat { margin:0 7%; padding:4px 6px; width:68%; border-radius:6px 6px 0 6px; background:#d8f2f4; color:#176578; font-size:clamp(.23rem,.4vw,.33rem); }.assistant-chat.reply { margin:4px 7% 4px auto; border-radius:6px 6px 6px 0; background:#eef3f4; color:#607c83; width:53%; }
+      .assistant-services { display:flex; gap:4px; padding:2% 7%; }.assistant-service { flex:1; min-height:28px; padding:4px; border:1px solid #d7ecee; background:white; color:#397985; font-size:clamp(.2rem,.35vw,.28rem); text-align:center; }.assistant-service span { display:block; color:#e3a33d; font-size:10px; line-height:9px; }
+      .family-screen { background:#fbfaf4; }.family-header { height:18%; padding:0 7%; background:white; border-bottom:1px solid #ece7da; display:flex; align-items:center; justify-content:space-between; color:#55715e; font-weight:700; font-size:clamp(.3rem,.52vw,.42rem); }.family-logo { width:15px; height:15px; border-radius:50% 50% 50% 3px; transform:rotate(-35deg); background:#7ca871; position:relative; }.family-logo::after { content:""; position:absolute; width:1px; height:11px; background:rgba(255,255,255,.8); top:2px; left:7px; transform:rotate(35deg); }.family-menu { width:13px;height:7px;border-top:1px solid #90a48f;border-bottom:1px solid #90a48f; }
+      .family-hero { margin:5% 6% 3%; min-height:36%; padding:7% 8%; color:white; background:linear-gradient(120deg,rgba(80,128,101,.92),rgba(149,180,105,.9)),linear-gradient(#6c9273,#a9c784); position:relative; overflow:hidden; }.family-hero::after{content:"";position:absolute;width:58px;height:58px;border:1px solid rgba(255,255,255,.38);border-radius:50%;left:-17px;bottom:-26px}.family-hero b{display:block;font-size:clamp(.43rem,.76vw,.63rem)}.family-hero small{font-size:clamp(.22rem,.38vw,.31rem);opacity:.9}.family-pill{display:inline-block;margin-top:5px;padding:3px 6px;background:#f8dc84;color:#57714d;border-radius:9px;font-size:clamp(.2rem,.34vw,.28rem)}
+      .family-topics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:0 6%}.family-topic{min-height:31px;padding:5px 2px;text-align:center;background:white;border:1px solid #eee8db;color:#6b8a68;font-size:clamp(.19rem,.33vw,.27rem)}.family-topic i{display:block;width:8px;height:8px;margin:0 auto 3px;border-radius:50%;background:#d4a968}.family-topic:nth-child(2) i{background:#91b98a}.family-topic:nth-child(3) i{background:#76a8a8}
+      .platform:hover .screen-canvas,.platform:focus-visible .screen-canvas { animation-duration:4.5s; }.platform:hover .preview,.platform:focus-visible .preview { transform:perspective(500px) rotateY(-.5deg) rotateX(.3deg) scale(1.035); }
+      @keyframes previewDrift { 0% { transform:scale(1.01) translateX(-1%); } 100% { transform:scale(1.04) translateX(1%); } } @keyframes screenReflection { 0%,38%{transform:translateX(-135%)} 65%,100%{transform:translateX(140%)} }
+      @media (max-width:720px) { .platform .preview { flex-basis:53%; height:72%; } .main-platform .preview { flex-basis:54%; } .waili-services { gap:3px; } }
+    </style>
+  </head>
+  <body>
+    <div class="intro" aria-hidden="true"><span></span></div>
+    <div class="ambient" aria-hidden="true">
+      <i class="orb orb-one"></i><i class="orb orb-two"></i><i class="orb orb-three"></i>
+      <div class="grain"></div><div class="beam beam-one"></div><div class="beam beam-two"></div>
+      <div class="stars"></div>
+    </div>
+
+    <main>
+      <section class="showcase" aria-labelledby="main-title">
+        <div class="eyebrow reveal title-reveal"><span></span> الرعاية الصحية، بصيغة رقمية</div>
+        <div class="showcase-intro reveal title-reveal">
+          <p class="kicker">DIGITAL HEALTH ECOSYSTEM</p>
+          <h1 id="main-title">منظومة رقمية متكاملة<br />لخدمات الصحة</h1>
+          <p class="subtitle">ثلاث منصات... تجربة رقمية واحدة</p>
+          <p class="supporting">حلول رقمية صُممت لتسهيل الوصول إلى الخدمة والمعلومة والتوعية الصحية.</p>
+        </div>
+
+        <div class="stage" id="stage">
+          <svg class="connections" viewBox="0 0 1200 620" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="line-left" x1="0" x2="1"><stop stop-color="#e8bd70"/><stop offset=".43" stop-color="#80e5e2"/><stop offset="1" stop-color="#2774a5" stop-opacity=".12"/></linearGradient>
+              <linearGradient id="line-right" x1="1" x2="0"><stop stop-color="#e8bd70"/><stop offset=".43" stop-color="#80e5e2"/><stop offset="1" stop-color="#2774a5" stop-opacity=".12"/></linearGradient>
+              <filter id="softglow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path class="line line-glow" pathLength="100" d="M600 170 C530 280 405 295 265 430" /><path class="line line-glow" pathLength="100" d="M600 170 C670 280 795 295 935 430" />
+            <path class="line line-left" pathLength="100" d="M600 170 C530 280 405 295 265 430" /><path class="line line-right" pathLength="100" d="M600 170 C670 280 795 295 935 430" />
+            <circle class="traveler traveler-left" r="4" filter="url(#softglow)"><animateMotion dur="4.5s" repeatCount="indefinite" path="M600 170 C530 280 405 295 265 430" /></circle>
+            <circle class="traveler traveler-right" r="4" filter="url(#softglow)"><animateMotion dur="5.1s" repeatCount="indefinite" path="M600 170 C670 280 795 295 935 430" /></circle>
+          </svg>
+
+          <a class="platform main-platform reveal card-reveal" href="https://dokyy2.github.io/waili-health-platform/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المنصة الرقمية للخدمات الصحية بمنطقة الوايلي الطبية">
+            <div class="floating-label">المنصة الرئيسية <b>✦</b></div>
+            <div class="card-head"><span class="platform-code">PLATFORM 01 — FLAGSHIP</span><span class="status"><i></i> متصل الآن</span></div>
+            <div class="card-content">
+              <div class="card-copy"><p class="number">01</p><h2>المنصة الرقمية<br />للخدمات الصحية</h2><p>منطقة الوايلي الطبية</p></div>
+              <div class="preview primary-preview" aria-hidden="true">
+                <div class="screen-canvas waili-screen">
+                  <div class="browser-top real-bar"><i></i><i></i><i></i><span class="site-name">waili-health-platform</span></div>
+                  <div class="waili-nav"><div class="waili-brand"><strong>+</strong> منطقة الوايلي الطبية</div><div class="nav-dashes"><b></b><b></b><b></b></div></div>
+                  <div class="waili-hero"><small>بوابتك إلى الرعاية الصحية</small><b>الخدمات الصحية الرقمية</b><span>ابدأ خدمتك</span></div>
+                  <div class="waili-services"><div class="waili-service"><i></i>حجز خدمة</div><div class="waili-service"><i></i>التطعيمات</div><div class="waili-service"><i></i>التوعية</div></div>
+                </div>
+              </div>
+            </div>
+            <span class="explore">استكشف المنصة <b>↗</b></span>
+          </a>
+
+          <a class="platform secondary assistant reveal card-reveal" href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المساعد الذكي لمكاتب الصحة">
+            <div class="card-head"><span class="platform-code">PLATFORM 02</span><span class="mini-mark">✦</span></div>
+            <div class="card-content"><div class="card-copy"><p class="number">02</p><h2>المساعد الذكي<br />لمكاتب الصحة</h2><p>إجابات وإرشاد أقرب إليك</p></div><div class="preview assistant-preview" aria-hidden="true"><div class="screen-canvas assistant-screen"><div class="browser-top real-bar"><i></i><i></i><i></i><span class="site-name">smart-assistant</span></div><div class="assistant-header"><div class="assistant-brand"><span class="bot-mark">✦</span> المساعد الذكي</div><span class="header-menu"></span></div><div class="assistant-welcome">أهلاً بك، كيف يمكنني مساعدتك؟<small>اختر الخدمة التي تبحث عنها</small></div><div class="assistant-chat">أحتاج لمعرفة أقرب مكتب صحة</div><div class="assistant-chat reply">بالتأكيد، سأساعدك الآن</div><div class="assistant-services"><div class="assistant-service"><span>⌖</span>مكاتب الصحة</div><div class="assistant-service"><span>✚</span>تطعيمات</div><div class="assistant-service"><span>◫</span>خدماتي</div></div></div></div></div>
+            <span class="explore">استكشف المنصة <b>↗</b></span>
+          </a>
+
+          <a class="platform secondary awareness reveal card-reveal" href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" aria-label="استكشف منصة التوعية الأسرية">
+            <div class="card-head"><span class="platform-code">PLATFORM 03</span><span class="mini-mark">✦</span></div>
+            <div class="card-content"><div class="card-copy"><p class="number">03</p><h2>منصة التوعية<br />الأسرية</h2><p>معلومة صحية لكل بيت</p></div><div class="preview awareness-preview" aria-hidden="true"><div class="screen-canvas family-screen"><div class="browser-top real-bar"><i></i><i></i><i></i><span class="site-name">awarefamily</span></div><div class="family-header"><span class="family-menu"></span><span>منصة التوعية الأسرية</span><span class="family-logo"></span></div><div class="family-hero"><b>صحة الأسرة تبدأ بالوعي</b><small>محتوى صحي موثوق لكل أسرة</small><span class="family-pill">اكتشف الآن</span></div><div class="family-topics"><div class="family-topic"><i></i>تغذية</div><div class="family-topic"><i></i>أمومة</div><div class="family-topic"><i></i>صحة الطفل</div></div></div></div></div>
+            <span class="explore">استكشف المنصة <b>↗</b></span>
+          </a>
+        </div>
+        <div class="scroll-hint reveal title-reveal"><span></span> اكتشف المنظومة</div>
+      </section>
+
+      <section class="choices" aria-labelledby="choices-title">
+        <div class="section-heading"><p class="kicker">A CONNECTED EXPERIENCE</p><h2 id="choices-title">اختر تجربتك</h2><p>كل منصة تؤدي دوراً مختلفاً، ضمن رؤية واحدة للرعاية الأكثر قرباً.</p></div>
+        <div class="choice-grid">
+          <a href="https://dokyy2.github.io/waili-health-platform/" target="_blank" rel="noopener noreferrer" class="choice-card"><span>01</span><div><h3>الخدمات الصحية</h3><p>بوابة رقمية لخدمات منطقة الوايلي الطبية.</p></div><b>دخول المنصة ↗</b></a>
+          <a href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" class="choice-card"><span>02</span><div><h3>المساعد الذكي</h3><p>إرشاد صحي واضح في الوقت المناسب.</p></div><b>دخول المنصة ↗</b></a>
+          <a href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" class="choice-card"><span>03</span><div><h3>التوعية الأسرية</h3><p>محتوى موثوق لصحة أكثر وعياً.</p></div><b>دخول المنصة ↗</b></a>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="closing-glow"></div><p class="kicker">ONE VISION · THREE PLATFORMS</p><h2 id="closing-title">التقنية عندما تُصمم<br />لخدمة الإنسان</h2><p>منصة واحدة لا تكفي...<br />لذلك صممنا منظومة متكاملة.</p>
+        <div class="constellation" aria-label="المنصات الثلاث متصلة"><span>الخدمات الصحية</span><i></i><span>المساعد الذكي</span><i></i><span>التوعية الأسرية</span></div>
+        <a class="final-cta" href="#main-title">استكشف المنصات الثلاث <b>↓</b></a>
+      </section>
+    </main>
+    <footer>منظومة الخدمات الصحية الرقمية <span>©</span> ٢٠٢٦</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
