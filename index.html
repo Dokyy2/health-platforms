@@ -35,6 +35,8 @@
       .platform:hover .screen-canvas,.platform:focus-visible .screen-canvas { animation-duration:4.5s; }.platform:hover .preview,.platform:focus-visible .preview { transform:perspective(500px) rotateY(-.5deg) rotateX(.3deg) scale(1.035); }
       @keyframes previewDrift { 0% { transform:scale(1.01) translateX(-1%); } 100% { transform:scale(1.04) translateX(1%); } } @keyframes screenReflection { 0%,38%{transform:translateX(-135%)} 65%,100%{transform:translateX(140%)} }
       @media (max-width:720px) { .platform .preview { flex-basis:53%; height:72%; } .main-platform .preview { flex-basis:54%; } .waili-services { gap:3px; } }
+      /* Visibility fallback: cards never remain invisible if an animation is delayed or blocked. */
+      .reveal { opacity: 1; }
     </style>
   </head>
   <body>
