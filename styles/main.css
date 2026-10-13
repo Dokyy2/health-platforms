@@ -100,7 +100,7 @@ body {
   touch-action:manipulation;
   overflow:hidden;
   background:radial-gradient(circle at 53% 62%,#123c51 0%,#06121e 34%,#010409 80%);
-  animation:splashExit .7s 5s cubic-bezier(.65,0,.4,1) forwards
+  animation:splashExit .85s 7s cubic-bezier(.65,0,.4,1) forwards
 }
 .launch-splash img {
   position:absolute;
@@ -110,7 +110,7 @@ body {
   opacity:0;
   filter:drop-shadow(0 0 32px rgba(106,243,238,.42));
   transform:translate3d(-50%,18vh,0) scale(.7) rotate(-5deg);
-  animation:rocketLaunch 5s cubic-bezier(.18,.65,.27,1) forwards
+  animation:rocketLaunch 7s cubic-bezier(.18,.65,.27,1) forwards
 }
 .splash-stars {
   position:absolute;
@@ -118,7 +118,7 @@ body {
   background-image:radial-gradient(circle at 20% 25%,#d9ffff 0 1px,transparent 1.5px),radial-gradient(circle at 75% 38%,#f8db99 0 1px,transparent 1.4px),radial-gradient(circle at 45% 70%,#a9f4ee 0 .8px,transparent 1.4px);
   background-size:180px 160px,260px 220px,130px 120px;
   opacity:.7;
-  animation:splashStars 4.7s ease-in forwards
+  animation:splashStars 6.6s ease-in forwards
 }
 .splash-copy {
   position:absolute;
@@ -130,7 +130,7 @@ body {
   width:min(90vw,620px);
   text-align:center;
   transform:translate(-50%,-50%);
-  animation:splashCopy 4.2s ease-out forwards
+  animation:splashCopy 6s ease-out forwards
 }
 .splash-copy span {
   color:var(--gold);
@@ -160,7 +160,7 @@ body {
   border-radius:inherit;
   background:linear-gradient(90deg,#71e2dd,#f1c66e,#eaffff);
   box-shadow:0 0 13px rgba(159,246,240,.86);
-  animation:splashLoading 3.9s .28s cubic-bezier(.28,.72,.32,1) forwards
+  animation:splashLoading 5.7s .45s cubic-bezier(.28,.72,.32,1) forwards
 }
 .splash-copy small {
   color:rgba(221,248,247,.72);
@@ -177,7 +177,7 @@ body {
   background:#e8ffff;
   box-shadow:0 0 30px 13px #a7ffff,0 0 220px 130px #166580;
   transform:translate(-50%,-50%);
-  animation:splashFlare 5.1s ease-out forwards
+  animation:splashFlare 7.1s ease-out forwards
 }
 .splash-skip {
   position:absolute;
@@ -205,12 +205,6 @@ body {
 .splash-skip b {
   margin-right:.25rem;
   color:#f0ca7f
-}
-.launch-splash.splash-return {
-  animation:splashExit .45s .75s cubic-bezier(.65,0,.4,1) forwards
-}
-.launch-splash.splash-return .splash-loader,.launch-splash.splash-return .splash-copy small,.launch-splash.splash-return .splash-skip {
-  display:none
 }
 .launch-splash.is-skipped {
   animation:splashExit .42s ease forwards!important
@@ -1396,6 +1390,88 @@ footer em {
 
 /* Final mobile balance: compact orbit layout without losing the cinematic hierarchy. */
 @media (max-width:720px) {
+  html,body,main {
+    width:100%;
+    max-width:100%;
+    margin-inline:auto
+  }
+  .showcase,.choices,.closing,footer {
+    width:100%;
+    margin-inline:auto
+  }
+  .showcase {
+    padding-right:max(1rem,env(safe-area-inset-right));
+    padding-left:max(1rem,env(safe-area-inset-left))
+  }
+  .eyebrow {
+    right:auto;
+    left:50%;
+    width:max-content;
+    max-width:calc(100% - 2rem);
+    transform:translateX(-50%)
+  }
+  .showcase-intro {
+    width:100%;
+    margin-inline:auto;
+    text-align:center
+  }
+  .stage {
+    width:min(100%,34rem);
+    margin-right:auto;
+    margin-left:auto;
+    padding-right:0;
+    padding-left:0
+  }
+  .platform,.main-platform,.secondary {
+    margin-right:auto;
+    margin-left:auto
+  }
+  .card-copy,.main-platform .card-copy {
+    right:50%;
+    width:min(78%,23rem);
+    padding:.52rem .65rem;
+    border-right:0;
+    border-top:1px solid rgba(133,232,223,.5);
+    border-bottom:1px solid rgba(133,232,223,.28);
+    background:linear-gradient(90deg,rgba(3,17,28,.38),rgba(3,17,28,.72) 25%,rgba(3,17,28,.72) 75%,rgba(3,17,28,.38));
+    text-align:center;
+    transform:translate(50%,-48%)
+  }
+  body.is-english .card-copy,body.is-english .main-platform .card-copy {
+    right:50%;
+    left:auto;
+    border-left:0;
+    border-top:1px solid rgba(133,232,223,.5);
+    border-bottom:1px solid rgba(133,232,223,.28);
+    text-align:center;
+    transform:translate(50%,-48%)
+  }
+  .platform-update {
+    justify-content:center
+  }
+  .floating-label {
+    right:50%;
+    transform:translateX(50%)
+  }
+  .choices {
+    padding-right:max(1rem,env(safe-area-inset-right));
+    padding-left:max(1rem,env(safe-area-inset-left))
+  }
+  .section-heading {
+    width:100%;
+    margin-right:auto;
+    margin-left:auto;
+    text-align:center
+  }
+  .choice-grid {
+    width:100%;
+    margin-right:auto;
+    margin-left:auto
+  }
+  .closing {
+    padding-right:max(1.2rem,env(safe-area-inset-right));
+    padding-left:max(1.2rem,env(safe-area-inset-left))
+  }
   .launch-splash img {
     width:min(75vw,330px);
     left:50%;

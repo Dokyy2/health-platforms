@@ -75,15 +75,6 @@ languageSwitch?.addEventListener('click', () => {
 });
 
 if (splash) {
-  try {
-    if (window.localStorage.getItem('health-showcase-intro-seen') === 'true') {
-      splash.classList.add('splash-return');
-    }
-    window.localStorage.setItem('health-showcase-intro-seen', 'true');
-  } catch {
-    // The full intro remains available if session storage is unavailable.
-  }
-
   splash.addEventListener('click', () => {
     splash.classList.add('is-skipped');
   }, { once: true });
