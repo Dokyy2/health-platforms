@@ -14,121 +14,47 @@
     <meta property="og:description" content="ثلاث منصات صحية مترابطة: الخدمات الصحية، المساعد الذكي، والتوعية الأسرية." />
     <meta property="og:image" content="https://dokyy2.github.io/health-platforms/assets/platform-banner.png" />
     <meta property="og:image:alt" content="المنصة الرقمية للخدمات الصحية – منطقة الوايلي الطبية" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="900" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="منظومة رقمية متكاملة لخدمات الصحة" />
     <meta name="twitter:description" content="ثلاث منصات صحية مترابطة في تجربة رقمية واحدة." />
     <meta name="twitter:image" content="https://dokyy2.github.io/health-platforms/assets/platform-banner.png" />
+    <meta name="robots" content="index,follow" />
     <title>منظومة الصحة الرقمية</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="assets/optimized/cosmic-rocket-splash.webp" type="image/webp" />
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      /* Interface-only upgrade: the cinematic shell remains in style.css. */
-      .platform .preview { flex: 0 0 54%; height: 70%; border-radius: 6px; background: #eef7f7 !important; transform: perspective(500px) rotateY(-2.5deg) rotateX(1deg); transform-origin: 50% 50%; box-shadow: 0 17px 32px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.55); }
-      .main-platform .preview { flex-basis: 54%; height: 74%; }
-      .platform .preview::before { content: ""; position:absolute; inset:0; z-index:8; pointer-events:none; background:linear-gradient(112deg,transparent 23%,rgba(255,255,255,.36) 46%,transparent 57%); transform:translateX(-130%); animation:screenReflection 7.5s 1.5s ease-in-out infinite; }
-      .screen-canvas { height:100%; color:#13384d; direction:rtl; overflow:hidden; position:relative; font-family:"IBM Plex Sans Arabic",sans-serif; animation:previewDrift 8s ease-in-out infinite alternate; transform-origin:center; }
-      .screen-canvas::after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(16,53,71,.18), inset 0 -24px 25px -25px rgba(0,32,52,.65); }
-      .browser-top.real-bar { height:13%; min-height:16px; padding:0 .38rem; background:#edf4f5; border-bottom:1px solid #d7e6e7; color:#63818a; font-size:clamp(.25rem,.43vw,.35rem); }
-      .real-bar .site-name { margin-right:auto; margin-left:.2rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:68%; }
-      .browser-top.real-bar i { width:4px; height:4px; }
-      .waili-screen { background:linear-gradient(135deg,#e7fbfa 0%,#edf8ff 52%,#d7eff7 100%); }
-      .waili-nav { height:16%; padding:0 7%; background:white; display:flex; align-items:center; justify-content:space-between; box-shadow:0 1px 7px rgba(18,92,116,.08); }
-      .waili-brand { display:flex; align-items:center; gap:4px; color:#0e6170; font-weight:700; font-size:clamp(.28rem,.52vw,.42rem); white-space:nowrap; }.waili-brand strong { display:grid; place-items:center; width:14px; height:14px; background:#0e8b9c; border-radius:3px; color:white; font-size:10px; line-height:1; }
-      .nav-dashes { display:flex; gap:4px; }.nav-dashes b { width:10px; height:2px; border-radius:2px; background:#74abb5; }.nav-dashes b:first-child{background:#e1ae5e;width:14px}
-      .waili-hero { margin:5% 6% 3%; min-height:33%; padding:6% 7%; border-radius:4px; background:linear-gradient(120deg,#087d8e,#0d5079); color:white; position:relative; overflow:hidden; }.waili-hero::after { content:"+"; position:absolute; left:8%; bottom:-35%; color:rgba(255,255,255,.19); font:700 4rem Arial; }.waili-hero small { display:block; opacity:.84; font-size:clamp(.26rem,.46vw,.38rem); }.waili-hero b { display:block; font-size:clamp(.42rem,.8vw,.67rem); margin-top:3px; }.waili-hero span { display:inline-block; background:#f4c169; color:#135069; border-radius:8px; padding:3px 6px; font-size:clamp(.22rem,.38vw,.31rem); margin-top:6px; }
-      .waili-services { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; padding:0 6%; }.waili-service { background:white; padding:6px 4px; min-height:31px; box-shadow:0 2px 5px rgba(22,95,118,.1); text-align:center; font-size:clamp(.22rem,.38vw,.3rem); font-weight:600; color:#27707d; }.waili-service i { display:block; width:8px; height:8px; margin:0 auto 3px; background:#62c9ca; border-radius:50%; }.waili-service:nth-child(2) i{background:#e6b45e}.waili-service:nth-child(3) i{background:#578fc5}
-      .assistant-screen { background:#f7fbfc; }.assistant-header { height:18%; padding:0 7%; background:linear-gradient(90deg,#07627c,#1296ae); color:white; display:flex; align-items:center; justify-content:space-between; }.assistant-brand { display:flex; align-items:center; gap:4px; font-size:clamp(.3rem,.53vw,.43rem); font-weight:700; }.bot-mark { width:15px; height:15px; border:1.5px solid white; border-radius:5px; display:grid; place-items:center; font-size:9px; }.header-menu{width:13px;height:7px;border-top:1px solid rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.8)}
-      .assistant-welcome { padding:5% 7% 3%; color:#0a5e77; font-weight:700; font-size:clamp(.38rem,.7vw,.57rem); }.assistant-welcome small{display:block;color:#71919b;font-size:clamp(.23rem,.4vw,.32rem);font-weight:400;margin-top:2px}.assistant-chat { margin:0 7%; padding:4px 6px; width:68%; border-radius:6px 6px 0 6px; background:#d8f2f4; color:#176578; font-size:clamp(.23rem,.4vw,.33rem); }.assistant-chat.reply { margin:4px 7% 4px auto; border-radius:6px 6px 6px 0; background:#eef3f4; color:#607c83; width:53%; }
-      .assistant-services { display:flex; gap:4px; padding:2% 7%; }.assistant-service { flex:1; min-height:28px; padding:4px; border:1px solid #d7ecee; background:white; color:#397985; font-size:clamp(.2rem,.35vw,.28rem); text-align:center; }.assistant-service span { display:block; color:#e3a33d; font-size:10px; line-height:9px; }
-      .family-screen { background:#fbfaf4; }.family-header { height:18%; padding:0 7%; background:white; border-bottom:1px solid #ece7da; display:flex; align-items:center; justify-content:space-between; color:#55715e; font-weight:700; font-size:clamp(.3rem,.52vw,.42rem); }.family-logo { width:15px; height:15px; border-radius:50% 50% 50% 3px; transform:rotate(-35deg); background:#7ca871; position:relative; }.family-logo::after { content:""; position:absolute; width:1px; height:11px; background:rgba(255,255,255,.8); top:2px; left:7px; transform:rotate(35deg); }.family-menu { width:13px;height:7px;border-top:1px solid #90a48f;border-bottom:1px solid #90a48f; }
-      .family-hero { margin:5% 6% 3%; min-height:36%; padding:7% 8%; color:white; background:linear-gradient(120deg,rgba(80,128,101,.92),rgba(149,180,105,.9)),linear-gradient(#6c9273,#a9c784); position:relative; overflow:hidden; }.family-hero::after{content:"";position:absolute;width:58px;height:58px;border:1px solid rgba(255,255,255,.38);border-radius:50%;left:-17px;bottom:-26px}.family-hero b{display:block;font-size:clamp(.43rem,.76vw,.63rem)}.family-hero small{font-size:clamp(.22rem,.38vw,.31rem);opacity:.9}.family-pill{display:inline-block;margin-top:5px;padding:3px 6px;background:#f8dc84;color:#57714d;border-radius:9px;font-size:clamp(.2rem,.34vw,.28rem)}
-      .family-topics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:0 6%}.family-topic{min-height:31px;padding:5px 2px;text-align:center;background:white;border:1px solid #eee8db;color:#6b8a68;font-size:clamp(.19rem,.33vw,.27rem)}.family-topic i{display:block;width:8px;height:8px;margin:0 auto 3px;border-radius:50%;background:#d4a968}.family-topic:nth-child(2) i{background:#91b98a}.family-topic:nth-child(3) i{background:#76a8a8}
-      .platform:hover .screen-canvas,.platform:focus-visible .screen-canvas { animation-duration:4.5s; }.platform:hover .preview,.platform:focus-visible .preview { transform:perspective(500px) rotateY(-.5deg) rotateX(.3deg) scale(1.035); }
-      @keyframes previewDrift { 0% { transform:scale(1.01) translateX(-1%); } 100% { transform:scale(1.04) translateX(1%); } } @keyframes screenReflection { 0%,38%{transform:translateX(-135%)} 65%,100%{transform:translateX(140%)} }
-      @media (max-width:720px) { .platform .preview { flex-basis:53%; height:72%; } .main-platform .preview { flex-basis:54%; } .waili-services { gap:3px; } }
-      /* Visibility fallback: cards never remain invisible if an animation is delayed or blocked. */
-      .reveal { opacity: 1; }
-      /* A quiet, sequential light cue makes the three platforms feel connected. */
-      .main-platform { animation: floatMain 7s ease-in-out infinite, cardHeartbeat 9s .25s ease-in-out infinite; }
-      .assistant { animation: floatSide 7.5s -1.7s ease-in-out infinite, cardHeartbeat 9s 3.25s ease-in-out infinite; }
-      .awareness { animation: floatSide 7.5s -4.3s ease-in-out infinite, cardHeartbeat 9s 6.25s ease-in-out infinite; }
-      @keyframes cardHeartbeat { 0%, 24%, 100% { border-color:rgba(151,219,222,.19); box-shadow:inset 0 1px 0 rgba(224,255,255,.1),0 23px 45px rgba(0,0,0,.28); } 7%, 15% { border-color:rgba(161,248,241,.8); box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 0 0 1px rgba(113,242,231,.18),0 0 34px rgba(75,218,211,.31),0 23px 45px rgba(0,0,0,.28); } }
-      /* Platform marks: a healthcare cross, a friendly assistant bot, and a family leaf. */
-      .waili-brand strong { width:19px; height:19px; border-radius:5px; font-size:14px; background:linear-gradient(135deg,#0791a0,#1263a1); box-shadow:0 3px 8px rgba(0,118,143,.32); }
-      .waili-hero::before { content:"✚"; position:absolute; left:8%; top:10%; z-index:1; color:rgba(255,255,255,.91); font:700 1.3rem Arial; width:25px; height:25px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.42); border-radius:50%; }
-      .assistant-brand .bot-mark { width:20px; height:17px; border-radius:6px; border:0; background:#e9c06b; color:transparent; position:relative; box-shadow:0 2px 7px rgba(0,0,0,.18); }
-      .assistant-brand .bot-mark::before { content:"• •"; position:absolute; inset:0; display:grid; place-items:center; color:#17657b; font:700 9px/1 Arial; letter-spacing:1px; }
-      .assistant-brand .bot-mark::after { content:""; position:absolute; width:7px; height:3px; border-top:1px solid #17657b; border-radius:50%; bottom:3px; right:6px; }
-      .family-header .family-logo { width:20px; height:20px; box-shadow:0 3px 8px rgba(67,117,77,.18); }
-      @media (max-width:720px) { .main-platform,.assistant,.awareness { animation:cardHeartbeat 9s ease-in-out infinite; } .main-platform { animation-delay:.25s; } .assistant { animation-delay:3.25s; } .awareness { animation-delay:6.25s; } .stage:before { width:2px; height:calc(100% - 11.5rem); top:calc(16% + 1rem); background:repeating-linear-gradient(to bottom,#8ff5eb 0 8px,rgba(228,186,114,.9) 8px 12px,transparent 12px 25px); background-size:100% 25px; box-shadow:0 0 12px rgba(110,239,226,.85); animation:mobileLightStream 1.7s linear infinite; } .stage:after { content:"✦"; top:19%; color:#ffe0a1; font-size:1rem; filter:drop-shadow(0 0 8px #9dfff5); animation:mobileNode 2.5s linear infinite; } }
-      @keyframes mobileLightStream { to { background-position:0 25px; } } @keyframes mobileNode { 0% { translate:0 0; opacity:0; } 15% { opacity:1; } 88% { opacity:1; } 100% { translate:0 calc(100svh + 200px); opacity:0; } }
-      /* Mobile performance pass: preserve the visual language while avoiding full-screen repaints. */
-      .platform,.orb,.beam,.screen-canvas { will-change:transform; }
-      @media (max-width:720px) {
-        .platform { backdrop-filter:none; -webkit-backdrop-filter:none; background:linear-gradient(130deg,rgba(17,48,62,.93),rgba(6,21,31,.95)); }
-        .grain { display:none; } .stars { animation:none; opacity:.34; } .beam { animation:none; filter:none; opacity:.32; } .orb { filter:blur(16px); animation:none; opacity:.22; } .orb-three { display:none; }
-        .platform::after { animation-duration:12s; } .screen-canvas { animation-duration:11s; } .preview { box-shadow:0 9px 20px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.45); }
-        .choices,.closing { content-visibility:auto; contain-intrinsic-size:700px; }
-      }
-      /* Authoritative platform assets: presented unchanged inside the existing cinematic frames. */
-      .asset-preview { background:radial-gradient(circle at 50% 38%,#174c63 0%,#092538 54%,#04131f 100%) !important; display:grid; place-items:center; }
-      .asset-preview img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; mix-blend-mode:multiply; filter:contrast(1.09) saturate(1.06); animation:assetPreviewMotion 12s ease-in-out infinite alternate; transform-origin:center; }
-      .asset-preview::before { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(140deg,rgba(8,51,66,.08),rgba(3,15,28,.33)); }
-      .assistant-asset { background:radial-gradient(circle at 50% 42%,#168fc0 0%,#0b496e 43%,#061a2a 100%) !important; }
-      .assistant-asset img { object-fit:contain; padding:5%; }
-      .family-asset img { object-position:center 35%; }
-      .asset-preview::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(112deg,transparent 31%,rgba(255,255,255,.22) 47%,transparent 57%); transform:translateX(-130%); animation:screenReflection 8.5s 1.5s ease-in-out infinite; }
-      .asset-logo { display:inline-grid; place-items:center; width:27px; height:27px; overflow:hidden; border-radius:50%; vertical-align:middle; margin-left:.48rem; background:#08293a; border:1px solid rgba(215,250,248,.48); box-shadow:0 0 15px rgba(121,232,224,.2); }
-      .asset-logo img { width:100%; height:100%; object-fit:cover; mix-blend-mode:multiply; }
-      .asset-logo.assistant-logo { background:transparent; border:0; box-shadow:none; }
-      @keyframes assetPreviewMotion { from { transform:scale(1.015) translateX(-.5%); } to { transform:scale(1.04) translateX(.5%); } }
-      @media (max-width:720px) { .asset-preview img { animation-duration:15s; } }
-      /* The supplied visuals now live as large, low-contrast card atmospheres — not boxed thumbnails. */
-      .asset-preview { display:none; }
-      .main-platform { background-image:linear-gradient(118deg,rgba(4,25,35,.93),rgba(8,45,57,.66)),url('assets/platform-banner.png'); background-size:cover,cover; background-position:center,center; background-repeat:no-repeat; background-blend-mode:multiply; }
-      .assistant { background-image:linear-gradient(115deg,rgba(4,23,34,.94),rgba(8,48,62,.64)),url('assets/assistant-logo.png'); background-size:cover,62% auto; background-position:center,16% center; background-repeat:no-repeat; background-blend-mode:multiply; }
-      .awareness { background-image:linear-gradient(115deg,rgba(4,23,34,.94),rgba(11,54,60,.67)),url('assets/family-awareness-preview.png'); background-size:cover,66% auto; background-position:center,16% center; background-repeat:no-repeat; background-blend-mode:multiply; }
-      .platform .card-copy { max-width:58%; text-shadow:0 2px 12px rgba(0,11,18,.8); }
-      .main-platform .card-copy { max-width:46%; }
-      .platform .card-content { justify-content:flex-end; }
-      @media (max-width:720px) { .assistant,.awareness { background-size:cover,72% auto; background-position:center,18% center; } .main-platform .card-copy { max-width:56%; } .platform .card-copy { max-width:61%; } }
-      /* Text-safe layout: titles sit consistently on the right, away from the artwork's own lettering. */
-      .platform .card-content { position:relative; display:block; }
-      .platform .card-copy { position:absolute; top:50%; right:1.1rem; left:auto; z-index:4; width:42%; max-width:none; transform:translateY(-48%); text-align:right; padding:.45rem .55rem .45rem .15rem; background:linear-gradient(90deg,transparent,rgba(3,17,28,.47) 20%,rgba(3,17,28,.71)); border-right:2px solid rgba(133,232,223,.47); }
-      .main-platform .card-copy { right:1.35rem; width:40%; max-width:none; }
-      .main-platform .card-copy h2 { font-size:clamp(1.04rem,1.75vw,1.46rem); line-height:1.48; }
-      .secondary .card-copy h2 { font-size:clamp(.9rem,1.3vw,1.12rem); line-height:1.5; }
-      .platform .card-copy>p:last-child { font-size:.59rem; line-height:1.65; }
-      .platform .number { margin-bottom:.35rem; font-size:.56rem; }
-      @media (max-width:720px) { .platform .card-copy { right:.75rem; width:48%; padding:.42rem .44rem .42rem .1rem; } .main-platform .card-copy { right:.8rem; width:48%; } .main-platform .card-copy h2 { font-size:1.08rem; } .secondary .card-copy h2 { font-size:.93rem; } }
-      /* A compact celestial timepiece: live Cairo time, kept airy around the hero. */
-      .cosmic-clock { position:relative; width:min(100%,330px); height:104px; margin:1.2rem auto -.15rem; display:grid; place-items:center; isolation:isolate; color:#f6ffff; }
-      .clock-orbit { position:absolute; border-radius:50%; pointer-events:none; z-index:-1; }.orbit-one { width:100%; height:80px; border:1px solid rgba(131,235,229,.24); box-shadow:0 0 22px rgba(71,205,203,.11),inset 0 0 18px rgba(63,182,191,.06); transform:rotate(-7deg); animation:cosmicOrbit 13s linear infinite; }.orbit-two { width:76%; height:56px; border-top:1px solid rgba(232,190,113,.58); border-bottom:1px solid rgba(120,229,222,.42); transform:rotate(11deg); animation:cosmicOrbit 9s linear infinite reverse; }
-      .clock-readout { direction:ltr; display:flex; align-items:baseline; justify-content:center; gap:.26rem; font-family:Alexandria,sans-serif; font-size:clamp(1.55rem,3.2vw,2.35rem); font-weight:600; letter-spacing:.045em; text-shadow:0 0 15px rgba(172,249,244,.39); }.clock-readout span { min-width:2ch; }.clock-readout b { color:var(--gold); font-size:.76em; font-weight:400; animation:clockPulse 1s steps(1,end) infinite; }
-      .cosmic-clock time { position:absolute; bottom:2px; font-size:.62rem; letter-spacing:.06em; color:#b8d8d7; }.cosmic-clock::before,.cosmic-clock::after { content:"✦"; position:absolute; color:var(--gold); font-size:.55rem; text-shadow:0 0 10px #e8c075; }.cosmic-clock::before { top:13px; right:23px; }.cosmic-clock::after { bottom:16px; left:25px; color:var(--cyan); }
-      footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.25rem .45rem; } footer>span { color:#68828a; padding:0; } footer em { color:var(--gold); font-style:normal; } .footer-credit { position:relative; display:inline-flex; align-items:center; gap:.38rem; overflow:hidden; margin-right:.65rem; padding:.26rem .5rem; color:#f1c76f; text-decoration:none; font:600 .65rem Alexandria,sans-serif; letter-spacing:.02em; border-right:1px solid rgba(235,191,110,.42); text-shadow:0 0 8px rgba(239,190,99,.34); animation:creditGlow 4.8s ease-in-out infinite; }.footer-credit svg { width:1rem; height:1rem; filter:drop-shadow(0 0 5px rgba(237,188,101,.55)); }.footer-credit::after { content:""; position:absolute; inset:0; background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.68) 50%,transparent 65%); transform:translateX(-125%); animation:creditShine 4.8s ease-in-out infinite; }.footer-credit:hover,.footer-credit:focus-visible { color:#fff0c7; outline:none; }
-      @keyframes cosmicOrbit { to { transform:rotate(353deg); } } @keyframes clockPulse { 50% { opacity:.18; } } @keyframes creditGlow { 50% { color:#fff3c9; text-shadow:0 0 14px rgba(255,213,123,.85); } } @keyframes creditShine { 0%,67% { transform:translateX(-125%); } 91%,100% { transform:translateX(125%); } }
-      @media (max-width:720px) { .cosmic-clock { width:min(94vw,300px); height:91px; margin:1rem auto .35rem; }.clock-readout { font-size:1.62rem; }.orbit-one { height:70px; }.orbit-two { height:48px; }.footer-credit { order:3; width:100%; justify-content:center; margin:.35rem 0 0; border-right:0; border-top:1px solid rgba(235,191,110,.26); padding-top:.6rem; } }
-    </style>
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <div class="intro" aria-hidden="true"><span></span></div>
+    <div class="launch-splash" id="launch-splash">
+      <div class="splash-stars"></div>
+      <div class="splash-copy">
+        <span>HEALTH UNIVERSE</span>
+        <strong data-i18n="splashTitle">عالم المنصات الصحية الرقمية</strong>
+        <div class="splash-loader" aria-hidden="true"><i></i></div>
+        <small data-i18n="splashLoading">يتم تجهيز المنظومة</small>
+      </div>
+      <picture><source srcset="assets/optimized/cosmic-rocket-splash.webp" type="image/webp" /><img src="assets/cosmic-rocket-splash.png" alt="" decoding="async" /></picture>
+      <div class="splash-flare"></div>
+      <button class="splash-skip" type="button"><span data-i18n="splashSkip">تخطَّ المقدمة</span> <b>↗</b></button>
+    </div>
     <div class="ambient" aria-hidden="true">
       <i class="orb orb-one"></i><i class="orb orb-two"></i><i class="orb orb-three"></i>
-      <div class="grain"></div><div class="beam beam-one"></div><div class="beam beam-two"></div>
-      <div class="stars"></div>
+      <div class="grain"></div><div class="beam beam-one"></div><div class="beam beam-two"></div><div class="stars"></div>
     </div>
+    <button class="language-switch" id="language-switch" type="button" aria-label="Switch to English"><span>EN</span></button>
 
     <main>
       <section class="showcase" aria-labelledby="main-title">
-        <div class="eyebrow reveal title-reveal"><span></span> الرعاية الصحية، بصيغة رقمية</div>
-        <div class="showcase-intro reveal title-reveal">
-          <p class="kicker">DIGITAL HEALTH ECOSYSTEM</p>
-          <h1 id="main-title">منظومة رقمية متكاملة<br />لخدمات الصحة</h1>
-          <p class="subtitle">ثلاث منصات... تجربة رقمية واحدة</p>
-          <p class="supporting">حلول رقمية صُممت لتسهيل الوصول إلى الخدمة والمعلومة والتوعية الصحية.</p>
+        <div class="eyebrow"><span></span><em data-i18n="eyebrow"> الرعاية الصحية، بصيغة رقمية</em></div>
+        <div class="showcase-intro">
+          <p class="kicker">HEALTH UNIVERSE · PLATFORM NETWORK</p>
+          <h1 id="main-title" data-i18n-html="heroTitle">عالم رقمي واحد<br />لصحة أقرب</h1>
+          <p class="subtitle" data-i18n="subtitle">منصات مترابطة... وخدمات تتحرك حول الإنسان</p>
+          <p class="supporting" data-i18n="supporting">بوابة واحدة تجمع المنصات الصحية والخدمية والتوعوية، وتكبر كلما اتسعت الحاجة.</p>
           <div class="cosmic-clock" role="timer" aria-label="الوقت الحالي بتوقيت القاهرة">
             <div class="clock-orbit orbit-one"></div><div class="clock-orbit orbit-two"></div>
             <div class="clock-readout"><span id="clock-hours">00</span><b>:</b><span id="clock-minutes">00</span><b>:</b><span id="clock-seconds">00</span></div>
@@ -143,53 +69,52 @@
               <linearGradient id="line-right" x1="1" x2="0"><stop stop-color="#e8bd70"/><stop offset=".43" stop-color="#80e5e2"/><stop offset="1" stop-color="#2774a5" stop-opacity=".12"/></linearGradient>
               <filter id="softglow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             </defs>
-            <path class="line line-glow" pathLength="100" d="M600 170 C530 280 405 295 265 430" /><path class="line line-glow" pathLength="100" d="M600 170 C670 280 795 295 935 430" />
-            <path class="line line-left" pathLength="100" d="M600 170 C530 280 405 295 265 430" /><path class="line line-right" pathLength="100" d="M600 170 C670 280 795 295 935 430" />
+            <path class="line line-glow" d="M600 170 C530 280 405 295 265 430" /><path class="line line-glow" d="M600 170 C670 280 795 295 935 430" />
+            <path class="line line-left" d="M600 170 C530 280 405 295 265 430" /><path class="line line-right" d="M600 170 C670 280 795 295 935 430" />
             <circle class="traveler traveler-left" r="4" filter="url(#softglow)"><animateMotion dur="4.5s" repeatCount="indefinite" path="M600 170 C530 280 405 295 265 430" /></circle>
             <circle class="traveler traveler-right" r="4" filter="url(#softglow)"><animateMotion dur="5.1s" repeatCount="indefinite" path="M600 170 C670 280 795 295 935 430" /></circle>
           </svg>
 
-          <a class="platform main-platform reveal card-reveal" href="https://dokyy2.github.io/waili-health-platform/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المنصة الرقمية للخدمات الصحية بمنطقة الوايلي الطبية">
-            <div class="floating-label">المنصة الرئيسية <b>✦</b></div>
-            <div class="card-head"><span class="platform-code">PLATFORM 01 — FLAGSHIP</span><span class="status"><i></i> متصل الآن</span></div>
-            <div class="card-content">
-              <div class="card-copy"><p class="number">01</p><h2>المنصة الرقمية<br />للخدمات الصحية</h2><p><span class="asset-logo"><img src="assets/waili-logo.png" alt="" /></span>منطقة الوايلي الطبية</p></div>
-              <div class="preview primary-preview asset-preview" aria-hidden="true"><img src="assets/platform-banner.png" alt="" /></div>
-            </div>
-            <span class="explore">استكشف المنصة <b>↗</b></span>
+          <a class="platform main-platform" href="https://dokyy2.github.io/waili-health-platform/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المنصة الرقمية للخدمات الصحية بمنطقة الوايلي الطبية">
+            <div class="floating-label"><span data-i18n="flagship">المنصة الرئيسية</span> <b>✦</b></div>
+            <div class="card-head"><span class="platform-code">PLATFORM 01 — FLAGSHIP</span><span class="status"><i></i><span data-i18n="online">متصل الآن</span></span></div>
+            <div class="card-content"><div class="card-copy"><p class="number">01</p><h2 data-i18n-html="platformOneTitle">المنصة الرقمية<br />للخدمات الصحية</h2><p><span class="asset-logo"><picture><source srcset="assets/optimized/waili-logo.webp" type="image/webp" /><img src="assets/waili-logo.png" alt="" loading="lazy" /></picture></span><span data-i18n="platformOneDescription">خدمات الوايلي في مكان واحد</span></p><small class="platform-update"><i></i><span data-i18n="updated">آخر تحديث · 13/10/2026</span></small></div></div>
+            <span class="explore"><span data-i18n="explore">استكشف المنصة</span> <b>↗</b></span>
           </a>
 
-          <a class="platform secondary assistant reveal card-reveal" href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المساعد الذكي لمكاتب الصحة">
-            <div class="card-head"><span class="platform-code">PLATFORM 02</span><span class="status"><i></i> متصل الآن</span></div>
-            <div class="card-content"><div class="card-copy"><p class="number">02</p><h2>المساعد الذكي<br />لمكاتب الصحة</h2><p><span class="asset-logo assistant-logo"><img src="assets/assistant-logo.png" alt="" /></span>إجابات وإرشاد أقرب إليك</p></div><div class="preview assistant-preview asset-preview assistant-asset" aria-hidden="true"><img src="assets/assistant-logo.png" alt="" /></div></div>
-            <span class="explore">استكشف المنصة <b>↗</b></span>
+          <a class="platform secondary assistant" href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" aria-label="استكشف المساعد الذكي لمكاتب الصحة">
+            <div class="card-head"><span class="platform-code">PLATFORM 02</span><span class="status"><i></i><span data-i18n="online">متصل الآن</span></span></div>
+            <div class="card-content"><div class="card-copy"><p class="number">02</p><h2 data-i18n-html="platformTwoTitle">المساعد الذكي<br />لمكاتب الصحة</h2><p><span class="asset-logo assistant-logo"><picture><source srcset="assets/optimized/assistant-logo.webp" type="image/webp" /><img src="assets/assistant-logo.png" alt="" loading="lazy" /></picture></span><span data-i18n="platformTwoDescription">اسأل وخُد إرشاد واضح في الوقت الصح</span></p><small class="platform-update"><i></i><span data-i18n="updated">آخر تحديث · 13/10/2026</span></small></div></div>
+            <span class="explore"><span data-i18n="explore">استكشف المنصة</span> <b>↗</b></span>
           </a>
 
-          <a class="platform secondary awareness reveal card-reveal" href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" aria-label="استكشف منصة التوعية الأسرية">
-            <div class="card-head"><span class="platform-code">PLATFORM 03</span><span class="status"><i></i> متصل الآن</span></div>
-            <div class="card-content"><div class="card-copy"><p class="number">03</p><h2>منصة التوعية<br />الأسرية</h2><p>معلومة صحية لكل بيت</p></div><div class="preview awareness-preview asset-preview family-asset" aria-hidden="true"><img src="assets/family-awareness-preview.png" alt="" /></div></div>
-            <span class="explore">استكشف المنصة <b>↗</b></span>
+          <a class="platform secondary awareness" href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" aria-label="استكشف منصة التوعية الأسرية">
+            <div class="card-head"><span class="platform-code">PLATFORM 03</span><span class="status"><i></i><span data-i18n="online">متصل الآن</span></span></div>
+            <div class="card-content"><div class="card-copy"><p class="number">03</p><h2 data-i18n-html="platformThreeTitle">منصة التوعية<br />الأسرية</h2><p data-i18n="platformThreeDescription">معلومة موثوقة تساعد كل بيت</p><small class="platform-update"><i></i><span data-i18n="updated">آخر تحديث · 13/10/2026</span></small></div></div>
+            <span class="explore"><span data-i18n="explore">استكشف المنصة</span> <b>↗</b></span>
           </a>
         </div>
-        <div class="scroll-hint reveal title-reveal"><span></span> اكتشف المنظومة</div>
+        <div class="scroll-hint"><span></span><em data-i18n="scroll">اكتشف المنظومة</em></div>
       </section>
 
-      <section class="choices" aria-labelledby="choices-title">
-        <div class="section-heading"><p class="kicker">A CONNECTED EXPERIENCE</p><h2 id="choices-title">اختر تجربتك</h2><p>كل منصة تؤدي دوراً مختلفاً، ضمن رؤية واحدة للرعاية الأكثر قرباً.</p></div>
+      <section class="choices" id="directory" aria-labelledby="choices-title">
+        <div class="section-heading"><p class="kicker">EXPLORE THE ORBIT</p><h2 id="choices-title" data-i18n="directoryTitle">خريطة المنظومة</h2><p data-i18n="directorySupport">منصات حاضرة اليوم، ومسارات رقمية جديدة تنضم إلى المدار تباعاً.</p></div>
         <div class="choice-grid">
-          <a href="https://dokyy2.github.io/waili-health-platform/" target="_blank" rel="noopener noreferrer" class="choice-card"><span>01</span><div><h3>الخدمات الصحية</h3><p>بوابة رقمية لخدمات منطقة الوايلي الطبية.</p></div><b>دخول المنصة ↗</b></a>
-          <a href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" class="choice-card"><span>02</span><div><h3>المساعد الذكي</h3><p>إرشاد صحي واضح في الوقت المناسب.</p></div><b>دخول المنصة ↗</b></a>
-          <a href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" class="choice-card"><span>03</span><div><h3>التوعية الأسرية</h3><p>محتوى موثوق لصحة أكثر وعياً.</p></div><b>دخول المنصة ↗</b></a>
+          <a href="https://dokyy2.github.io/waili-health-platform/" target="_blank" rel="noopener noreferrer" class="choice-card"><span>01</span><div><h3 data-i18n="choiceOneTitle">الخدمات الصحية</h3><p data-i18n="choiceOneDescription">كل خدمات منطقة الوايلي الطبية في مكان واحد: مواعيد، أخبار، خرائط وتحديثات.</p></div><b data-i18n="enter">دخول المنصة ↗</b></a>
+          <a href="https://dokyy2.github.io/smart-assistant/" target="_blank" rel="noopener noreferrer" class="choice-card"><span>02</span><div><h3 data-i18n="choiceTwoTitle">المساعد الذكي</h3><p data-i18n="choiceTwoDescription">اسأل وخُد إجابة صحية واضحة وخطوات بسيطة توصّلك للخدمة المناسبة.</p></div><b data-i18n="enter">دخول المنصة ↗</b></a>
+          <a href="https://sites.google.com/view/awarefamily" target="_blank" rel="noopener noreferrer" class="choice-card"><span>03</span><div><h3 data-i18n="choiceThreeTitle">التوعية الأسرية</h3><p data-i18n="choiceThreeDescription">معلومة عملية موثوقة تساعد الأسرة تاخد قرار صحي أفضل في الوقت الصح.</p></div><b data-i18n="enter">دخول المنصة ↗</b></a>
+          <article class="choice-card future-card"><span>＋</span><div><h3 data-i18n="futureTitle">منصة جديدة قريباً</h3><p data-i18n="futureDescription">منصات وخدمات جديدة بتتضاف علشان المنظومة تكبر مع احتياجات الناس.</p></div><b data-i18n="futureStatus">قيد الاستعداد</b></article>
         </div>
       </section>
 
       <section class="closing" aria-labelledby="closing-title">
-        <div class="closing-glow"></div><p class="kicker">ONE VISION · THREE PLATFORMS</p><h2 id="closing-title">التقنية عندما تُصمم<br />لخدمة الإنسان</h2><p>منصة واحدة لا تكفي...<br />لذلك صممنا منظومة متكاملة.</p>
-        <div class="constellation" aria-label="المنصات الثلاث متصلة"><span>الخدمات الصحية</span><i></i><span>المساعد الذكي</span><i></i><span>التوعية الأسرية</span></div>
-        <a class="final-cta" href="#main-title">استكشف المنصات الثلاث <b>↓</b></a>
+        <div class="closing-glow"></div><p class="kicker">ONE VISION · GROWING ORBIT</p><h2 id="closing-title" data-i18n-html="closingTitle">كل منصة… رعاية أقرب.<br />وكل خدمة في وقتها.</h2><p data-i18n-html="closingSupport">منظومة صحية بتكبر علشان الخدمة توصل للناس<br />ببساطة واهتمام.</p>
+        <div class="constellation" aria-label="المنصات الثلاث متصلة"><span data-i18n="choiceOneTitle">الخدمات الصحية</span><i></i><span data-i18n="choiceTwoTitle">المساعد الذكي</span><i></i><span data-i18n="choiceThreeTitle">التوعية الأسرية</span></div>
+        <a class="final-cta" href="#directory"><span data-i18n="finalCta">استكشف المنظومة</span> <b>↓</b></a>
       </section>
     </main>
+
     <footer><span>منظومة الخدمات الصحية الرقمية</span><em>©</em><span>٢٠٢٦</span><a class="footer-credit" href="https://wa.me/201021708011" target="_blank" rel="noopener noreferrer" aria-label="التواصل مع المهندس باسم أشرف عبر واتساب"><span>Design by : Eng Bassem Ashraf</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.4a9.6 9.6 0 0 0-8.18 14.63L2.7 21.6l4.72-1.08A9.6 9.6 0 1 0 12 2.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 7.85c.16-.38.33-.39.61-.39h.52c.17 0 .36.03.44.27l.62 1.54c.08.2.05.39-.08.53l-.4.47c-.12.13-.25.26-.1.5.15.26.67 1.1 1.44 1.78.99.88 1.82 1.15 2.08 1.29.26.13.41.11.56-.07l.7-.82c.16-.19.34-.16.57-.08l1.45.68c.24.12.4.17.45.27.06.1.06.59-.14 1.16-.19.57-1.1 1.09-1.52 1.15-.4.06-.9.09-1.46-.09-.34-.11-.78-.26-1.34-.5-2.36-1.02-3.9-3.42-4.02-3.59-.12-.17-.96-1.27-.96-2.42 0-1.16.6-1.72.81-1.96Z" fill="currentColor"/></svg></a></footer>
-    <script src="script.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
